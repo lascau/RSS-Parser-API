@@ -69,3 +69,16 @@ Processing by NewsController#index as HTML
 Completed 200 OK in 277ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 18544)
 
 
+Started GET "/news?order_by=title&ordering=DESC" for ::1 at 2023-04-27 20:17:19 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NewsController#index as HTML
+  Parameters: {"order_by"=>"title", "ordering"=>"DESC"}
+Completed 200 OK in 308ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 28646)
+
+
+Started GET "/news?order_by=title&ordering=DESC" for ::1 at 2023-04-27 20:17:21 +0300
+Processing by NewsController#index as HTML
+  Parameters: {"order_by"=>"title", "ordering"=>"DESC"}
+Completed 200 OK in 205ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 18544)
+
+

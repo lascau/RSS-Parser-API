@@ -3,7 +3,40 @@ class NewsController < ApplicationController
 
   # GET /news or /news.json
   def index
-    @news = News.all
+    # TO DO: Move Business Logic in a Service then inject that Service
+    @doc = Nokogiri::XML(URI.open("https://rss.nytimes.com/services/xml/rss/nyt/World.xml"))
+    
+    titles = @doc.xpath("//item//title").map { |e| e.content }
+    links = @doc.xpath("//item//link").map { |e| e.content }
+    descriptions = @doc.xpath("//item//description").map { |e| e.content }
+    publication_dates = @doc.xpath("//item/pubDate").children.map { |e| DateTime.parse(e.content) }
+
+    news = []
+    titles.each_with_index do |_, index|
+      news << {
+        'title': titles[index],
+        'links': links[index],
+        'description': descriptions[index],
+        'pubDate': publication_dates[index],
+      }
+    end
+
+    # sort by title increasing
+    news.sort! { |a, b| a[:title] <=> b[:title] } if params[:order_by] == 'title' && params[:ordering] == 'ASC'
+
+    # sort by title decreasing
+    news.sort! { |a, b| b[:title] <=> a[:title] } if params[:order_by] == 'title' && params[:ordering] == 'DESC'
+
+    # sort by publication_date increasing
+    news.sort! { |a, b| a[:pubDate] <=> b[:pubDate] } if params[:order_by] == 'pubDate' && params[:ordering] == 'ASC'
+    
+    # sort by publication_date decreasing
+    news.sort! { |a, b| b[:pubDate] <=> a[:pubDate] } if params[:order_by] == 'pubDate' && params[:ordering] == 'DESC'
+
+    # filter news that contains search_word
+    news.select! { |current_news| current_news[:title].include?(params[:search_word]) || current_news[:description].include?(params[:search_word]) } if params[:search_word].present?
+
+    render xml: news.to_xml(root: "Items")
   end
 
   # GET /news/1 or /news/1.json
