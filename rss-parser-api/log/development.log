@@ -20,3 +20,52 @@ Migrating to CreateControllers (20230427165337)
   [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-04-27 16:59:50.197869"], ["updated_at", "2023-04-27 16:59:50.197869"]]
   [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateNews (20230427170536)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "news" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230427170536"]]
+  [1m[36mTRANSACTION (9.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/news" for ::1 at 2023-04-27 20:10:54 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NewsController#index as HTML
+Completed 200 OK in 542ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 48489)
+
+
+Started GET "/news?search_word=Francis" for ::1 at 2023-04-27 20:12:42 +0300
+Processing by NewsController#index as HTML
+  Parameters: {"search_word"=>"Francis"}
+Completed 200 OK in 265ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 5338)
+
+
+Started GET "/news" for ::1 at 2023-04-27 20:12:54 +0300
+Processing by NewsController#index as HTML
+Completed 200 OK in 347ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 18539)
+
+
+Started GET "/news?order_by=pubDate&ordering=ASC" for ::1 at 2023-04-27 20:13:26 +0300
+Processing by NewsController#index as HTML
+  Parameters: {"order_by"=>"pubDate", "ordering"=>"ASC"}
+Completed 200 OK in 283ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 18533)
+
+
+Started GET "/news?order_by=pubDate&ordering=DESC" for ::1 at 2023-04-27 20:13:39 +0300
+Processing by NewsController#index as HTML
+  Parameters: {"order_by"=>"pubDate", "ordering"=>"DESC"}
+Completed 200 OK in 213ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 18525)
+
+
+Started GET "/news?order_by=title&ordering=ASC" for ::1 at 2023-04-27 20:13:53 +0300
+Processing by NewsController#index as HTML
+  Parameters: {"order_by"=>"title", "ordering"=>"ASC"}
+Completed 200 OK in 243ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 18538)
+
+
+Started GET "/news?order_by=title&ordering=DESC" for ::1 at 2023-04-27 20:14:02 +0300
+Processing by NewsController#index as HTML
+  Parameters: {"order_by"=>"title", "ordering"=>"DESC"}
+Completed 200 OK in 277ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 18544)
+
+

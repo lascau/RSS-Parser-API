@@ -127,6 +127,10 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.14.3-x86_64-linux)
       racc (~> 1.4)
+    open-uri (0.3.0)
+      stringio
+      time
+      uri
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -181,7 +185,10 @@ GEM
     sqlite3 (1.6.2-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stringio (3.0.6)
     thor (1.2.1)
+    time (0.2.2)
+      date
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -189,6 +196,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (0.12.1)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -215,8 +223,10 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  nokogiri (~> 1.14, >= 1.14.3)
+  open-uri (~> 0.3.0)
   puma (~> 5.0)
-  rails (~> 7.0.4, >= 7.0.4.3)
+  rails (~> 7.0.4, >= 7.0.4.2)
   redis (~> 4.0)
   selenium-webdriver
   sprockets-rails
