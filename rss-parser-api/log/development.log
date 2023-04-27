@@ -1,0 +1,11 @@
+Started GET "/news?search_word=Fresh" for ::1 at 2023-04-27 19:22:17 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/news"):
+  
+Started GET "/" for ::1 at 2023-04-27 19:22:19 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/lascau/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/lascau/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.5ms | Allocations: 281)
+Completed 200 OK in 20ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 2761)
+
+
