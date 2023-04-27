@@ -1,0 +1,75 @@
+/rss-parser-api/*.rbc
+/rss-parser-api/capybara-*.html
+/rss-parser-api/.rspec
+/rss-parser-api/db/*.sqlite3
+/rss-parser-api/db/*.sqlite3-journal
+/rss-parser-api/db/*.sqlite3-[0-9]*
+/rss-parser-api/public/system
+/rss-parser-api/coverage/
+/rss-parser-api/spec/tmp
+/rss-parser-api/*.orig
+/rss-parser-api/rerun.txt
+/rss-parser-api/pickle-email-*.html
+
+# Ignore all logfiles and tempfiles.
+/rss-parser-api/log/*
+/rss-parser-api/tmp/*
+/rss-parser-api!/log/.keep
+/rss-parser-api!/tmp/.keep
+
+# TODO Comment out this rule if you are OK with secrets being uploaded to the repo
+/rss-parser-api/config/initializers/secret_token.rb
+/rss-parser-api/config/master.key
+
+# Only include if you have production secrets in this file, which is no longer a Rails default
+/rss-parser-api/config/secrets.yml
+
+# dotenv, dotenv-rails
+# TODO Comment out these rules if environment variables can be committed
+/rss-parser-api/.env
+/rss-parser-api/.env*.local
+
+## Environment normalization:
+/rss-parser-api/.bundle
+/rss-parser-api/vendor/bundle
+
+# these should all be checked in to normalize the environment:
+/rss-parser-api/Gemfile.lock
+/rss-parser-api/.ruby-version
+/rss-parser-api/.ruby-gemset
+.ruby-version
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+/rss-parser-api/.rvmrc
+
+# if using bower-rails ignore default bower_components path bower.json files
+/rss-parser-api/vendor/assets/bower_components
+/rss-parser-api/*.bowerrc
+/rss-parser-api/bower.json
+
+# Ignore pow environment settings
+/rss-parser-api/.powenv
+
+# Ignore Byebug command history file.
+/rss-parser-api/.byebug_history
+
+# Ignore node_modules
+/rss-parser-api/node_modules/
+
+# Ignore precompiled javascript packs
+/rss-parser-api/public/packs
+/rss-parser-api/public/packs-test
+/rss-parser-api/public/assets
+
+# Ignore yarn files
+/rss-parser-api/yarn-error.log
+/rss-parser-api/yarn-debug.log*
+/rss-parser-api/.yarn-integrity
+/rss-parser-api/yarn.lock
+
+# Ignore uploaded files in development
+/rss-parser-api/storage/*
+/rss-parser-api/storage/.keep
+/rss-parser-api/public/uploads
+
+/rss-parser-api/.browserslistrc
