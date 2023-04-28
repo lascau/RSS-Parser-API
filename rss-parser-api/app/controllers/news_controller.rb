@@ -21,6 +21,13 @@ class NewsController < ApplicationController
   def edit
   end
 
+  # POST /news/bulk_insert
+  def bulk_insert
+    news_bulk_insert_service = NewsBulkInsertService.new
+    news_bulk_insert_service.call
+    render json: { response: 'Succesfull bulk insert!' }, status: 200
+  end
+
   # POST /news or /news.json
   def create
     @news = News.new(news_params)
