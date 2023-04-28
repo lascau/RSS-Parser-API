@@ -16,6 +16,12 @@ class NewsProcessorService
     filter_news_dto
   end
   
+  def get_news_dto_xml_format
+    @news.to_xml(root: "Items")
+  end
+
+  private
+
   def parse_news
     @titles = @doc.xpath("//item//title").map { |e| e.content }
     @links = @doc.xpath("//item//link").map { |e| e.content }
@@ -48,7 +54,4 @@ class NewsProcessorService
     @news.select! { |current_news| current_news[:title].include?(@params[:search_word]) || current_news[:description].include?(@params[:search_word]) } if @params[:search_word].present?
   end
 
-  def get_news_dto_xml_format
-    @news.to_xml(root: "Items")
-  end
 end
